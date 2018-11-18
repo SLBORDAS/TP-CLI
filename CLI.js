@@ -1,5 +1,6 @@
 const axios = require('axios')
 var inquirer = require('inquirer')
+var fs = require ('file-system')
 
 var input =  [{type: 'input',
                     name: 'ville',
@@ -15,12 +16,13 @@ function blabla(){
         axios.get (meteo)
         .then(reponse => {
             console.log(reponse.data.main);
-            
+            blabla()
         })
         .catch(p => {
             console.log('error',p);
+            blabla()
         }) 
         console.log(meteo);
-        blabla()
+        
     });
 }
